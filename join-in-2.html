@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .wrapper {
+            width: 300px;
+            height: 700px;
+            background: burlywood;
+            margin: auto;
+            background: url("https://i.pinimg.com/originals/19/34/92/19349263d471763cf2719c106ed53fb9.jpg");
+            color: #9b9693;
+        }
+
+        form {
+            margin: 10px 10px 0 10px;
+        }
+
+        span {
+            color: #de4952;
+            margin-left: 10px;
+        }
+
+        .form-submit {
+            display: inline-block;
+            alignment: right;
+        }
+
+        a {
+            color: #9b9693;
+            border: 1px solid #9b9693;
+        }
+
+        #load {
+            margin-left: 130px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+<div class="wrapper">
+    <div class="logo">
+        <a href="#"></a>
+    </div>
+    <form method="get" action="#" id="sign_form" name="form">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" name="email" id="email"
+                   placeholder="이메일을 입력하세요.">
+            <span id="email_check"></span>
+        </div>
+        <div class="form-group">
+            <label for="pw">Password</label>
+            <input type="password" class="form-control" name="pw" id="pw" onblur="pw_check();" placeholder="Password">
+            <span id="pw_check"></span>
+        </div>
+        <div class="form-submit">
+            <button type="submit">로그인</button>
+        </div>
+    </form>
+    <!--<button id="load">불러오기</button>-->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<script>
+
+    var check_name = 0;
+    var check_email = 0;
+    var check_pw = 0;
+    $("#email").on("blur", function () {
+        var email = $("#email").val();
+        var email_reg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        console.log(email);
+        console.log("1= " + email_reg.test(email));
+        console.log(email.match(email_reg));
+        if (email_reg.test(email) === true) {
+            $("#email_check").text("ok");
+
+            if ($("#email").hasClass("is-invalid")) {
+                $("#email").removeClass("is-invalid");
+                $("#email").addClass("is-valid");
+
+            } else {
+                $("#email").addClass("is-valid");
+                check_email = 1;
+            }
+
+        } else {
+            $("#email_check").text("no");
+            $("#email").removeClass("is-valid");
+            $("#email").addClass("is-invalid");
+
+        }
+
+    })
+
+    function pw_check() {
+        var pw = $("#pw").val();
+        if (pw.length < 1) {
+            $("#pw_check").text("비밀번호를 입력하세요.");
+
+        } else {
+            check_pw = 1;
+        }
+    }
+
+    var data_join_form = {};
+    // var join_form =[];
+
+    $(".form-submit").click(function (e) {
+        e.preventDefault();
+        if (check_pw == 1 && check_email == 1) {
+
+            var email = $("#email").val();
+            var pw = $("#pw").val();
+
+            console.log("email= "+ email + "pw = " + pw);
+            check_member(email, pw);
+
+        }
+    });
+
+    function check_member(email, pw) {
+
+        var member_info = localStorage.getItem(email);
+        json = JSON.parse(member_info);
+        console.log(json.pw + " pwww");
+        if (json != null) {
+            if (json.pw == pw) {
+                localStorage.setItem("islogin", true);
+                alert("환영합니다.")
+                window.opener.location.reload();
+                window.close();
+            } else {
+                alert('비밀번호가 틀렸습니다.');
+                // window.close();
+            }
+        } else {
+            alert('회원을 찾을 수 없습니다.');
+            // window.close();
+        }
+    }
+</script>
+</body>
+</html>

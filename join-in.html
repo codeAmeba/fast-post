@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .wrapper {
+            width: 300px;
+            height: 700px;
+            background: burlywood;
+            margin: auto;
+            background: url("https://i.pinimg.com/originals/19/34/92/19349263d471763cf2719c106ed53fb9.jpg");
+            color: #9b9693;
+        }
+
+        form {
+            margin: 10px 10px 0 10px;
+        }
+
+        span {
+            color: #de4952;
+            margin-left: 10px;
+        }
+
+        .form-submit {
+            display: inline-block;
+            alignment: right;
+        }
+
+        a {
+            color: #9b9693;
+            border: 1px solid #9b9693;
+        }
+
+        #load {
+            margin-left: 130px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+<div class="wrapper">
+    <div class="logo">
+        <a href="#"></a>
+    </div>
+    <form method="get" action="#" id="sign_form" name="form">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" name="email" id="email"
+                   placeholder="이메일을 입력하세요.">
+            <span id="email_check"></span>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" id="name" onblur="name_check();"
+                   placeholder="이름을 입력하세요">
+            <span id="name_check"></span>
+        </div>
+        <div class="form-group">
+            <label for="pw">Password</label>
+            <input type="password" class="form-control" name="pw" id="pw" onblur="pw_check();" placeholder="Password">
+            <span id="pw_check"></span>
+        </div>
+        <div class="form-group">
+            <label for="zipcode">Adrress</label>
+            <input type="text" class="form-control" name="zipcode" id="zipcode" placeholder="우편번호" readonly>우편번호
+            <input type="text" class="form-control" name="addr1" id="addr1" readonly placeholder="">
+            <p id="address2_check">상세 주소 입력</p>
+            <input type="text" class="form-control" name="addr2" id="addr2" placeholder="">
+
+            <!--<button id="zipcode_search">찾기</button>-->
+            <a href="#" id="zipcode_search" type="">우편번호 찾기</a>
+        </div>
+        <div class="form-submit">
+            <button type="submit">회원가입</button>
+            <button id="load">불러오기</button>
+        </div>
+    </form>
+    <!--<button id="load">불러오기</button>-->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<script>
+
+
+    // var name = document.getElementById('name').val();
+    // var pw = document.getElementById('pw').val();
+
+    var check_name = 0;
+    var check_email = 0;
+    var check_pw = 0;
+
+    // $(function () {
+
+    $('#zipcode_search').click(function (e) {
+        e.preventDefault();
+        new daum.Postcode({
+            oncomplete: function (data) {
+                console.log(data)
+
+                $("#zipcode").val(data.postcode1 + data.postcode2);
+                $("#addr1").val(data.address);
+
+                // $("#address").val(data.address);
+            }
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+
+        }).open();
+        // });
+    });
+
+    $("#email").on("blur", function () {
+        var email = $("#email").val();
+        var email_reg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        console.log(email);
+        console.log("1= " + email_reg.test(email));
+        console.log(email.match(email_reg));
+        if (email_reg.test(email) === true) {
+            $("#email_check").text("ok");
+
+            if ($("#email").hasClass("is-invalid")) {
+                $("#email").removeClass("is-invalid");
+                $("#email").addClass("is-valid");
+
+            } else {
+                $("#email").addClass("is-valid");
+                check_email = 1;
+            }
+
+        } else {
+            $("#email_check").text("no");
+            $("#email").removeClass("is-valid");
+            $("#email").addClass("is-invalid");
+
+        }
+
+    })
+
+    function name_check() {
+
+        var pattern = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
+
+
+        var name = $("#name").val();
+        if (name.length < 1) {
+            console.log("no name")
+            $("#name_check").text("이름을 입력하세요.");
+        } else {
+            if (pattern.test(name) === false) {
+                $("#name_check").text("올바른 이름을 입력하세요.");
+                // return false;
+            } else {
+                $("#name_check").text("");
+                check_name = 1;
+            }
+        }
+    }
+
+    function pw_check() {
+        var pw = $("#pw").val();
+        if (pw.length < 1) {
+            $("#pw_check").text("비밀번호를 입력하세요.");
+
+        } else {
+            check_pw = 1;
+        }
+    }
+
+    var data_join_form = {};
+    // var join_form =[];
+
+    $(".form-submit").click(function () {
+        if (check_pw == 1 && check_name == 1 && check_email == 1) {
+            if ($("#addr2").val().length < 1) {
+                alert("상세 주소를 입력하세요");
+            }
+            else {
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var pw = $("#pw").val();
+                var zipcode = $("#zipcode").val();
+                var addr1 = $("#addr1").val();
+                var addr2 = $("#addr2").val();
+
+
+                var join_form = {name: name, email: email, pw: pw, zipcode: zipcode, addr1: addr1, addr2: addr2};
+
+                data_join_form = JSON.stringify(join_form);
+                localStorage.setItem(email, data_join_form);
+                // localStorage.setItem('name', name);
+                // localStorage.setItem('email', email);
+                // localStorage.setItem('addr1', addr1);
+                // localStorage.setItem('addr2', addr2);
+
+                // var form_serialize = $("#sign_form").serialize();
+                //
+                // var form_serialize_split = form_serialize.split("&");
+                //
+                // for (var i = 0 in form_serialize_split) {
+                //     var content_data = form_serialize_split[i].split("=");
+                //     var key_input = decodeURIComponent(content_data[0]);
+                //     var data_input = decodeURIComponent(content_data[1]);
+                //     $("#" + key_input).val(data_input);
+                // }
+                alert("이메일: " + email + "\n" + "이름: " + name + "\n" + "주소: " + addr1 + "\t" + addr2 + " 맞습니까?");
+            }
+        } else {
+            alert("작성 양식 폼을 다시 확인하세요");
+        }
+
+        window.close();
+    });
+
+    $("#load").click(function () {
+
+        console.log("load!!!!!!");
+        var data_join_form = localStorage.getItem("user");
+        var data_insert = JSON.parse(data_join_form);
+        // for(var i in data_insert){
+        //     var key = data_insert[i];
+        //     $("#"+)
+        // }
+        $("#email").val(data_insert.email);
+        $("#name").val(data_insert.name);
+        $("#pw").val(data_insert.pw);
+        $("#zipcode").val(data_insert.zipcode);
+        $("#addr1").val(data_insert.addr1);
+        $("#addr2").val(data_insert.addr2);
+    });
+
+</script>
+</body>
+</html>

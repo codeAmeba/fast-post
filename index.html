@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>The Fast Times</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,500" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="./main.css">
+    <!--제이쿼리소스-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--제이쿼리소스끝-->
+
+    <script src="main.js" type="text/javascript"></script>
+    <!--날짜 스크립트-->
+    <script type="text/javascript">
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+
+        today = yyyy + '.' + mm + '.' + dd;
+        //dd+ '/' +mm+'/'+yyyy;
+        //document.write(today);
+    </script>
+    <!--날짜 스크립트 끝-->
+
+    <script src="./main.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+<header>
+    <div class="headline row">
+        <div class="headline_left">
+            <div class="row headline_img">
+                <!--슬라이드메뉴-->
+                <div class="headline_list">
+                    <div onclick="history.back();" class="page_cover"></div>
+                    <div id="slide_menu">
+                        <div class="slide_list">
+                            menu
+                        </div>
+                        <div onclick="history.back();" class="close"></div>
+                    </div>
+                </div>
+                <!--슬라이드메뉴끝-->
+                <div class="headline_search">
+                    <img src="images/noun_Search_875352.svg" class="img_search"></div>
+                <div class="headline_search2 row">
+                    <input type="text" class="form-control search_form" placeholder="SEARCH" aria-label="Username"
+                           aria-describedby="basic-addon1">
+                    <button type="button" class="btn-search btn btn-sm btn-secondary">GO</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="headline_font">
+            <h1>The Fast Times</h1>
+        </div>
+        <div class="headlin_right">
+            <div class="login">
+                <button type="button" class="btn btn-sm btn-secondary sign_up">Sign Up</button>
+                <button type="button" class="btn-login btn btn-sm btn-secondary">LOG IN</button>
+                <button type="button" class="btn-logout btn btn-sm btn-secondary">LOG OUT</button>
+            </div>
+            <div class="headline_date">
+                <script>document.write(today);</script>
+            </div>
+        </div>
+    </div>
+    </div>
+    <hr>
+    <div class="topMenuDiv">
+        <ul class="topMenu">
+            <li class="menu-tab" id="topMenu0"><a href="#">World</a></li>
+            <li class="menu-tab" id="topMenu1"><a href="#">U.S</a></li>
+            <li class="menu-tab" id="topMenu2"><a href="#">Politics</a></li>
+            <li class="menu-tab" id="topMenu3"><a href="#">N.Y</a></li>
+            <li class="menu-tab" id="topMenu4"><a href="#">Business</a></li>
+            <li class="menu-tab" id="topMenu5"><a href="#">Opinion</a></li>
+            <li class="menu-tab" id="topMenu6"><a href="#">Tech</a></li>
+            <li class="menu-tab" id="topMenu7"><a href="#">Science</a></li>
+            <li class="menu-tab" id="topMenu8"><a href="./index_sample.html">E-Sports</a></li>
+            <li class="menu-tab" id="topMenu9"><a href="#">Health</a></li>
+            <li class="menu-tab" id="topMenu10"><a href="#">Sports</a></li>
+            <li class="menu-tab" id="topMenu11"><a href="#">Arts</a></li>
+            <li class="menu-tab" id="topMenu12"><a href="#">Books</a></li>
+            <li class="menu-tab" id="topMenu13"><a href="#">Style</a></li>
+            <li class="menu-tab" id="topMenu14"><a href="#">Food</a></li>
+            <li class="menu-tab" id="topMenu15"><a href="#">Travel</a></li>
+            <li class="menu-tab" id="topMenu16"><a href="#">Magazine</a></li>
+            <li class="menu-tab" id="topMenu17"><a href="#">Real Estate</a></li>
+        </ul>
+    </div>
+    <br/>
+</header>
+
+<div class="topDiv row">
+    <div class="topTopic">
+        <div class="topImg">
+            <img src="https://a.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Desports.png&w=80&h=80&scale=crop&cquality=40&location=origin">
+        </div>
+        <div class="topTopicText">
+            <h2><a href="http://www.espn.com/esports/" target="_blank">ESPN e-Sports</a></h2>
+            <p>MAenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec ullamcorper
+                nulla non metus auctor fringilla.</p>
+        </div>
+    </div>
+
+    <div class="topTopic">
+        <div class="topImg">
+            <img
+                    src="https://a.espncdn.com/i/espn/esports/lol/110/lcs_na.png?w=110&h=110">
+        </div>
+        <div class="topTopicText">
+            <h2>
+                <a href="http://www.espn.com/esports/story/_/id/25304828/league-legends-roster-shuffle-2018-signings-roster-moves-trades-more"
+                   target="_blank">League of Legends</a></h2>
+            <p>Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor.</p>
+        </div>
+    </div>
+    <div class="topTopic">
+        <div class="topImg">
+            <img
+                    src="https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Overwatch_League_logo.svg/1200px-Overwatch_League_logo.svg.png">
+        </div>
+        <div class="topTopicText">
+            <h2>
+                <a href="http://www.espn.com/esports/story/_/page/overwatchrostersseason2/overwatch-league-teams-rosters-schedules-more-season-2"
+                   target="_blank">Overwatch</a></h2>
+            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis
+                euismod semper.</p>
+        </div>
+    </div>
+
+    <div class="topTopic">
+        <!--<div class="exchange">환율</div>-->
+        <!--시계 div-->
+        <div class="clock-wrap">
+            <div class="clock"></div>
+        </div>
+        <!--날씨 div-->
+        <div class="weather">
+            <div class="weather-wrap">
+                <ul class="weather-item-wrap">
+                    <li class="weather-item">
+                        <div class="weather-item-icon weather-content"></div>
+                        <p class="weather-loc weather-content"></p>
+                        <p class="weather-CTMP weather-content"></p>
+                        <p class="weather-HLTmp weather-content">
+                            <span class="LTmp"></span><span class="HTmp"></span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<main>
+    <div class="main_div row">
+        <!--메인 왼쪽-->
+        <div class="main_left">
+            <div class="main_left1" data-toggle="modal" data-target="#exampleModalScrollable">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <article class="headline_ipsum headline_ipsum1">
+                            </article>
+                            <article class="main_ipsum main_ipsum1">
+                            </article>
+                        </div>
+                        <div class="flip-card-back">
+                            <img id='left1'
+                                 src="https://a4.espncdn.com/combiner/i?img=%2Fphoto%2F2019%2F0322%2Fr517942_1296x729_16%2D9.jpg&w=920&h=518&scale=crop&cquality=80&location=origin&format=jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title headline_ipsum1" id="exampleModalScrollableTitle1"></h5>
+                        </div>
+                        <div class="modal-body main_ipsum1">
+                            <img id="img-modal-1">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--모달끝-->
+            <div class="main_left2" data-toggle="modal" data-target="#exampleModalScrollable2">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <article class="headline_ipsum headline_ipsum2">
+                            </article>
+                            <article class="main_ipsum main_ipsum2">
+                            </article>
+                        </div>
+                        <div class="flip-card-back">
+                            <img id='left2'
+                                 src="https://a2.espncdn.com/combiner/i?img=%2Fphoto%2F2018%2F0728%2Fr407191_1296x729_16%2D9.jpg&w=920&h=518&scale=crop&cquality=80&location=origin&format=jpg">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal fade" id="exampleModalScrollable2" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title headline_ipsum2" id="exampleModalScrollableTitle2"></h5>
+                        </div>
+                        <div class="modal-body main_ipsum2">
+                            <img id="img-modal-2">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    <!--모달끝-->
+                </div>
+                <!--모달끝-->
+            </div>
+        </div>
+        <!--메인 중앙-->
+        <div class="main_center">
+            <div class="main_center1">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="http://www.espn.com/esports/story/_/id/26265839/team-solomid-zven-smoothie-chat-mistakes-improvements"
+                               target="_blank">
+                                <img src="https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2019%2F0314%2Fr514503_1296x729_16%2D9.jpg&w=920&h=518&scale=crop&cquality=80&location=origin&format=jpg"
+                                     style="width: 750px; height: 422px;"></a>
+                            <h6>Team SoloMid's Zven and Smoothie chat mistakes and improvements</h6>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="http://www.espn.com/esports/story/_/id/26323400/what-need-know-overwatch-league-stage-1-playoffs"
+                               target="_blank">
+                                <img src="https://a1.espncdn.com/combiner/i?img=%2Fphoto%2F2019%2F0321%2Fr517694_1296x729_16%2D9.png&w=920&h=518&scale=crop&cquality=80&location=origin&format=jpg"
+                                     style="width: 750px; height: 422px;"></a>
+                            <h6>What you need to know about the Overwatch League Stage 1 playoffs</h6>
+                        </div>
+                        <div class="carousel-item">
+                            <iframe width="750" height="422"
+                                    src="https://www.youtube.com/embed/KHADAte_Csk?controls=0"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            <h6>SKT Faker: 'I'd like to win the [LCK] championship again, it's been a
+                                while'</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="main_center2"></div>-->
+            <div class="main_center2">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="http://e-sports.or.kr/lck" target="_blank">
+                                <img src="http://www.e-sports.or.kr/upload/upload_images/banner//190131094359_banner.jpg"
+                                     class="d-block w-100" alt="2019 스무살우리 LoL 챔피언스 코리아 스프링"></a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="http://e-games.or.kr/bbs/view.php?p_mbs=003006001&p_mid=1&p_pkid=607&p_code=view"
+                               target="_blank">
+                                <img src="http://www.e-sports.or.kr/upload/upload_images/banner//190319022929_banner.jpg"
+                                     class="d-block w-100" alt="e스포츠 명예의 전당"></a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="http://e-games.or.kr/bbs/view.php?p_mbs=003006001&p_mid=1&p_pkid=607&p_code=view"
+                               target="_blank">
+                                <img src="http://www.e-sports.or.kr/upload/upload_images/banner//190321041739_banner.jpg"
+                                     class="d-block w-100" alt="공인 e스포츠 PC클럽 배틀그라운드 정규 클럽대회"></a>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                       data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                       data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--메인 오른쪽-->
+        <div class="main_right">
+            <div class="main_right1" data-toggle="modal" data-target="#exampleModalScrollable3">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <article class="headline_ipsum headline_ipsum3">
+                            </article>
+                            <article class="main_ipsum main_ipsum3">
+                            </article>
+                        </div>
+                        <div class="flip-card-back">
+                            <img id='left3'
+                                 src="https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2019%2F0313%2Fr513943_1296x729_16%2D9.png&w=920&h=518&scale=crop&cquality=80&location=origin&format=jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalScrollable3" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title headline_ipsum3" id="exampleModalScrollableTitle3"></h5>
+                        </div>
+                        <div class="modal-body main_ipsum3">
+                            <img id="img-modal-3">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--모달끝-->
+            <div class="main_right2" data-toggle="modal"
+                 data-target="#exampleModalScrollable4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <article class="headline_ipsum headline_ipsum4">
+                            </article>
+                            <article class="main_ipsum main_ipsum4">
+                            </article>
+                        </div>
+                        <div class="flip-card-back">
+                            <img id='left4'
+                                 src="https://a2.espncdn.com/combiner/i?img=%2Fphoto%2F2019%2F0318%2Fr516356_1296x729_16%2D9.jpg&w=920&h=518&scale=crop&cquality=80&location=origin&format=jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalScrollable4" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title headline_ipsum4"
+                                id="exampleModalScrollableTitle"></h5>
+                        </div>
+                        <div class="modal-body main_ipsum4">
+                            <img id="img-modal-4">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--모달끝-->
+        </div>
+
+    </div>
+    </div>
+</main>
+<!--푸터-->
+<footer>
+    <div class="foot_line">
+        <div class="foot_map">
+            <ul>
+                <li>
+                    <a href="#">© 2019 The Fast Times Company</a>
+                </li>
+                <li>
+                    <a href="#">Contact Us</a>
+                </li>
+                <li>
+                    <a href="#">Work with us</a>
+                </li>
+                <li>
+                    <a href="#">Advertise</a>
+                </li>
+                <li>
+                    <a href="#">Your Ad Choices</a>
+                </li>
+                <li>
+                    <a href="#">Privacy</a>
+                </li>
+                <li>
+                    <a href="#">Terms of Service</a>
+                </li>
+                <li>
+                    <a href="#">Terms of Sale</a>
+                </li>
+                <li>
+                    <a href="#">Site Map</a>
+                </li>
+                <li>
+                    <a href="#">Help</a>
+                </li>
+                <li>
+                    <a href="#">Subscriptions</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!--슬라이드메뉴 스크립트-->
+<script>
+    $(".headline_list").click(function () {
+        $("#slide_menu,.page_cover,html").addClass("open");
+        window.location.hash = "#open";
+    });
+    window.onhashchange = function () {
+        if (location.hash != "#open") {
+            $("#slide_menu,.page_cover,html").removeClass("open");
+        }
+    };
+    $(".headline_search").on('click', function (e) {
+        e.preventDefault();
+        if ($('.headline_search2').hasClass('active')) {
+            console.log(11)
+            $('.headline_search2').removeClass('active');
+        } else {
+            $('.headline_search2').addClass('active');
+        }
+    });
+
+    $(document).ready(function () {
+        var menu_num = localStorage.getItem("selected-menu");
+        var isLogin = localStorage.getItem("islogin");
+
+        $('.topMenu').find('#' + menu_num).addClass("selected-menu");
+
+        if (isLogin == 'true') {
+            $(".sign_up").css("display", "none");
+            $(".btn-login").css("display", "none");
+            $(".btn-logout").css("display", "block");
+        }
+
+
+    })
+
+    $(".headline_list").click(function () {
+        $("#slide_menu,.page_cover,html").addClass("open");
+        window.location.hash = "#open";
+    });
+    window.onhashchange = function () {
+        if (location.hash != "#open") {
+            $("#slide_menu,.page_cover,html").removeClass("open");
+        }
+    };
+
+    $(".img_search").click(function (e) {
+        e.preventDefault();
+        // $(".headline_search2").show();
+        if ($(".headline_search2").css("display") == 'none') {
+            $(".headline_search2").css("display", "block");
+        } else if ($(".headline_search2").css("display") == "block") {
+            $(".headline_search2").css("display", "none");
+        }
+    });
+
+    // 기사 읽어오는 스크립트 시작
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "./news.csv",
+            dataType: "text",
+            success: function (data) {
+                var allRows = data.split(/\r?\n|\r/);
+                var j = 0;
+                for (var i in allRows) {
+
+                    var singleRow = allRows[i].split(",");
+
+                    var singleRow_len = singleRow.length;
+
+                    var img_ord = singleRow[singleRow_len - 1];
+
+                    var comma = singleRow.length;
+                    if (i > 0) {
+                        if (singleRow.length == 6) {
+                            j++;
+                            $(".headline_ipsum" + j).append("<p>" + singleRow[1] + "</p>");
+                            $(".main_ipsum" + j).append("<p>" + singleRow[2] + singleRow[1] + singleRow[2] + "</p>" + "<br>");
+                        }
+                    }
+                }
+            }
+        })
+        $.ajax({
+            type: "GET",
+            url: "./img_src_data12.txt",
+            dataType: "text",
+            success: function (data) {
+                var imgRows = data.split(",");
+                var j = 0;
+                // var singleImg = imgRows.split(",");
+                console.log(imgRows);
+                for (var i in imgRows) {
+
+                    console.log(imgRows[i]);
+                    $("#img-modal-"+i).attr('src',imgRows[i-1]);
+
+                }
+            }
+        })
+    })
+    //    기사 읽어오는 스크립트 끝
+
+    //시계 동작 javascript
+    var Clock = (function () {
+        var exports = function (element) {
+            this._element = element;
+            var html = '';
+            for (var i = 0; i < 6; i++) {
+                html += '<span>&nbsp;</span>';
+            }
+            this._element.innerHTML = html;
+            this._slots = this._element.getElementsByTagName('span');
+            this._tick();
+        };
+        exports.prototype = {
+            _tick: function () {
+                var time = new Date();
+                this._update(this._pad(time.getHours()) + this._pad(time.getMinutes()) + this._pad(time.getSeconds()));
+                var self = this;
+                setTimeout(function () {
+                    self._tick();
+                }, 1000);
+            },
+            _pad: function (value) {
+                return ('0' + value).slice(-2);
+            },
+            _update: function (timeString) {
+                var i = 0, l = this._slots.length, value, slot, now;
+                for (; i < l; i++) {
+                    value = timeString.charAt(i);
+                    slot = this._slots[i];
+                    now = slot.dataset.now;
+                    if (!now) {
+                        slot.dataset.now = value;
+                        slot.dataset.old = value;
+                        continue;
+                    }
+                    if (now !== value) {
+                        this._flip(slot, value);
+                    }
+                }
+            },
+            _flip: function (slot, value) {
+                slot.classList.remove('flip');
+                slot.dataset.old = slot.dataset.now;
+                slot.dataset.now = value;
+                slot.offsetLeft;
+                slot.classList.add('flip');
+            }
+        };
+        return exports;
+    }());
+    var i = 0, clocks = document.querySelectorAll('.clock'), l = clocks.length;
+    for (; i < l; i++) {
+        new Clock(clocks[i]);
+    }
+
+    $('.menu-tab').on('click', function () {
+        $('.menu-tab').removeClass('selected-menu');
+
+        $(this).addClass("selected-menu")
+
+        var menu_num = $(this).attr('id');
+        localStorage.setItem("selected-menu", menu_num);
+    })
+
+    $(".sign_up").on("click", function () {
+        var popupX = (window.screen.width / 2) - (315 / 2);
+
+        var popupY = (window.screen.height / 2) - (703 / 2);
+
+        window.open('./join-in.html', '', 'status=no, height=703, width=315, left=' + popupX + ', top=' + popupY + ', screenX=' + popupX + ', screenY= ' + popupY);
+    })
+
+    $(".btn-login").on("click", function () {
+        var popupX = (window.screen.width / 2) - (315 / 2);
+
+        var popupY = (window.screen.height / 2) - (400 / 2);
+        window.open('./join-in-2.html', '', 'status=no, height=400, width=315, left=' + popupX + ', top=' + popupY + ', screenX=' + popupX + ', screenY= ' + popupY);
+    })
+
+    $(".btn-logout").on("click", function () {
+        localStorage.setItem("islogin", false);
+        window.location.reload();
+    })
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

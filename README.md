@@ -1,2 +1,2 @@
-# fast-post
-team project - e-sports newspaper
+# FAST-POST
+### e-sports newspaper
